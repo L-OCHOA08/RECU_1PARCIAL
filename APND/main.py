@@ -7,7 +7,7 @@ def menu():
 
     salir = False
     while not salir:
-        print("menu de gestion")
+        print("----- Menú de gestion -----")
         print("1.Asignar puntaje de rendimiento a un jugador")
         print("2.Consultar puntaje de un jugador")
         print("3.Modificar puntaje de un jugador (mejora o bajón)")
@@ -31,11 +31,11 @@ def menu():
             case 2:
                 consultar_puntaje(lista_jugadores, puntajes)
             case 3:
-                modificar_puntaje()
+                lista_jugadores, puntajes = modificar_puntaje(lista_jugadores, puntajes)
             case 4:
-                buscar_jugador_mas_forma()
+                buscar_jugador_mas_forma(puntajes)
             case 5:
-                mostrar_todos_los_jugadores()
+                mostrar_todos_los_jugadores(lista_jugadores, puntajes)
             case 6:
                 print("Saliendo del programa")
                 salir = True

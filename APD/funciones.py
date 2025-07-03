@@ -18,9 +18,9 @@ def buscar_carrera(carreras):
         if carrera == carreras[i]:
             print("Encontrada")
             encontrado = True
-            return carrera
         else:
             i += 1
+    return carrera
 
 def registrar_resultado_un_caballo(carreras, caballos, resultados):
     registro = []
@@ -65,8 +65,39 @@ def calcular_rendimiento_promedio(caballos, resultados):
             print(f"Promedio de {i}: Sin datos")
 
 
+def mostrar_caballo_mas_ganador(caballos_ganadores, caballos):
+    for i in caballos:
+        contador = 0
+        for j in caballos_ganadores:
+            if i == j:
+                contador += 1
+                if contador >= len(caballos_ganadores) / 2:
+                    caballo_ganador = j
+    print(f"El caballo con mejores puestos es {caballo_ganador}")
+    print("---------------------------------------------")
 
-# ------------------------------------------------- def determinar_caballo_mas_ganador() -------------------------------------------------
+def determinar_caballo_mas_ganador(carreras, resultados):
+    caballos_ganadores = []
+    for i in carreras:
+        caballo_ganador = None
+        mejor_tiempo = float('inf')
+        for j in resultados:
+            # resultados = [carrera, caballo, tiempo]
+            if j[2] < mejor_tiempo and i == j[0]:
+                mejor_tiempo = j[2]
+                caballo_ganador = j[1]
+                caballos_ganadores = caballos_ganadores + [caballo_ganador]
+
+        if mejor_tiempo >= 30 and mejor_tiempo <= 300:
+            print("---------------------------------------------")
+            print(f"{i}: el caballo {caballo_ganador} tiene el primer puesto con {mejor_tiempo}")
+            print("---------------------------------------------")
+        else:
+            print("---------------------------------------------")
+            print(f"No hay una carrera registrada en la competencia")
+            print("---------------------------------------------")
+    return caballos_ganadores
+
 
 def ordenamiento_burbuja(lista):
     n = len(lista)

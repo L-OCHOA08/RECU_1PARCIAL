@@ -4,7 +4,7 @@ def menu():
 
     # VARIABLES
     CARRERAS = ["gran premio ciudad", "copa del sur", "desafio de la plata", "clasico del litoral", "copa patagonica"]
-    CABALLOS = ["Tormenta", "Relámpago", "Flecha", "Centella", "Huracán", "Trueno", "Amanecer", "Galán", "Pampero", "Titán", "Bestia", "Veloz"]
+    CABALLOS = ["Tormenta", "Relampago", "Flecha", "Centella", "Huracan", "Trueno", "Amanecer", "Galan", "Pampero", "Titan", "Bestia", "Veloz"]
     resultados = []
 
     salir = False
@@ -37,7 +37,8 @@ def menu():
             case 3:
                 calcular_rendimiento_promedio(CABALLOS, resultados)
             case 4:
-                determinar_caballo_mas_ganador()
+                caballos_ganadores = determinar_caballo_mas_ganador(CARRERAS, resultados)
+                mostrar_caballo_mas_ganador(caballos_ganadores, CABALLOS)
             case 5:
                 mostrar_nombres_caballos_ordenados(CABALLOS)
             case 6:
